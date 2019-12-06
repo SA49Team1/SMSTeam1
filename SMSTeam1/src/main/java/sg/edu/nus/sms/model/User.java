@@ -8,17 +8,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 
 @Entity
 @Inheritance
 @DiscriminatorColumn(name="USER_TYPE")
-public abstract class User {
+public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
+	@NotEmpty
 	private String userName;
 	private String passWord;
 	

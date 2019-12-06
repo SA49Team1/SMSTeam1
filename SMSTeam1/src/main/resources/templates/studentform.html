@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Form</title>
+</head>
+<body>
+	<form action="/admin/insertstudent" method="get" th:object="${student}" th:action="@{/admin/savestudent}">
+	<fieldset>
+		RegID: <input type="text" th:field="*{studentID}">
+		<p th:if="${#fields.hasErrors('studentID')}" th:errors="*{studentID}"></p>
+	</fieldset>
+
+	<fieldset>
+		UserName: <input type="text" th:field="*{userName}">
+		<p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></p>
+	</fieldset>
+	
+    <fieldset>
+		FirstName: <input type="text" th:field="*{firstName}">
+		<p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+	</fieldset>
+	
+	<fieldset>
+		LastName: <input type="text" th:field="*{lastName}">
+		<p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+	</fieldset>
+	
+	<fieldset>
+		Semester: <input type="text" th:field="*{semester}">
+		<p th:if="${#fields.hasErrors('semester')}" th:errors="*{semester}"></p>
+	</fieldset>
+	
+	<fieldset>
+		<button type="submit">Save</button>
+	</fieldset>
+	
+	</form>
+
+
+</body>
+</html>

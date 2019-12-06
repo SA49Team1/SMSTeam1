@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+
+import com.sun.istack.NotNull;
 
 @Entity
 public class Course {
@@ -16,12 +19,13 @@ public class Course {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
+	@NotEmpty
 	private String courseName;
-	
+	@NotNull
 	private int courseUnit;
-	
+	@NotEmpty
 	private String courseCode;
-	
+	@NotEmpty
 	private String department;
 	
 	@ManyToOne
@@ -33,6 +37,22 @@ public class Course {
 	private List<StudentCourse> stugrades;
 	
 
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Faculty getCurrentFaculty() {
+		return currentFaculty;
+	}
+
+	public void setCurrentFaculty(Faculty currentFaculty) {
+		this.currentFaculty = currentFaculty;
+	}
 
 	public String getCourseName() {
 		return courseName;
@@ -86,7 +106,34 @@ public class Course {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((courseCode == null) ? 0 : courseCode.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Course other = (Course) obj;
+		if (courseCode == null) {
+			if (other.courseCode != null)
+				return false;
+		} else if (!courseCode.equals(other.courseCode))
+			return false;
+		return true;
+	}
+
+
+
 	
 
 }

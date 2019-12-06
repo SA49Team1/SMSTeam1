@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Course Form</title>
+</head>
+<body>
+	<form action="/admin/savecourse" method="get" th:object="${course}" th:action="@{/admin/savecourse}">
+	<fieldset>
+		Course Code: <input type="text" th:field="*{courseCode}">
+		<p th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}"></p>
+	</fieldset>
+
+	<fieldset>
+		CourseName: <input type="text" th:field="*{CourseName}">
+		<p th:if="${#fields.hasErrors('CourseName')}" th:errors="*{courseName}"></p>
+	</fieldset>
+	
+    <fieldset>
+		Department: <input type="text" th:field="*{department}">
+		<p th:if="${#fields.hasErrors('department')}" th:errors="*{department}"></p>
+	</fieldset>
+	
+	<fieldset>
+		Unit: <input type="text" th:field="*{courseUnit}">
+		<p th:if="${#fields.hasErrors('courseUnit')}" th:errors="*{courseUnit}"></p>
+	</fieldset>
+	
+	
+	<fieldset>
+		<button type="submit">Save</button>
+	</fieldset>
+	
+	</form>
+
+
+</body>
+</html>

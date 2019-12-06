@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Faculty List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+</head>
+<body>
+
+	<div th:fragment="home" class="w3-pale-blue w3-card">
+		<div class="w3-container w3-tangerine">
+			<p class="w3-large" align="center">List of Faculty</p>
+		</div>
+	</div>
+ 
+ 	<div class="w3-container" align="center">
+ 		<h1 align="center">List of Faculty</h1>
+ 		<a href="#" th:href="@{/admin/addfaculty}" >Add New Faculty</a><br/>
+ 		<a href="#" th:href="@{/admin/studentlist}" >Student List</a><br/>
+ 		<a href="#" th:href="@{/admin/courselist}" >Course List</a><br/>
+		<a href="#" th:href="@{/admin/applicationlist}" >Application List</a><br/>
+		
+		
+ 	</div>
+ 	
+ 	<div class="w3-container" align="center">
+ 	<h1>Faculty List</h1>
+ 	<table>
+ 		<tr>
+ 			<td>UserName</td><td>Faculty ID</td><td>First Name</td><td>Last Name</td><td>Department</td>
+ 		</tr>
+ 		<tr th:each="faculty:${faculties}">
+ 			<td th:text=${faculty.userName}>User Name</td>
+ 			<td th:text=${faculty.facultyID}>Reg ID</td>
+ 			<td th:text=${faculty.firstName}>First Name</td>
+ 			<td th:text=${faculty.lastName}>Last Name</td>
+ 			<td th:text=${faculty.department}>Department</td>
+ 			<td><a href="#" th:href="@{/admin/editfaculty/}+${faculty.id}" >Edit</a></td>
+ 			<td><a href="#" th:href="@{/admin/deletefaculty/}+${faculty.id}" >Delete</a></td>
+ 			</tr>
+ 			<tr>
+ 			
+ 			</tr>
+ 	</table>
+ 	</div>
+ 	<div th:fragment="copyright">
+ 		<p class="w3-wide" align="center">&copy; 2019 ISS, NUS, All Rights Reserved</p>
+ 	</div>
+</body>
+</html>

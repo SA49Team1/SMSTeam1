@@ -4,14 +4,23 @@ import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+
+import com.sun.istack.NotNull;
 
 @Entity
 @DiscriminatorValue("FAC")
 public class Faculty extends User {
 	
+	@NotNull
 	private int facultyID;
 	
+	@NotEmpty
+	private String firstName;
+	@NotEmpty
+	private String lastName;
 	
+	@NotEmpty
 	private String department;
 	
 	@OneToMany(mappedBy="currentFaculty")
@@ -41,6 +50,22 @@ public class Faculty extends User {
 
 
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 	public String getDepartment() {
 		return department;
 	}
@@ -59,6 +84,11 @@ public class Faculty extends User {
 		this.facultyID = facultyID;
 		this.department = department;
 		this.coursesInCharge = coursesInCharge;
+	}
+
+	@Override
+	public String toString() {
+		return "Faculty [firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 
 

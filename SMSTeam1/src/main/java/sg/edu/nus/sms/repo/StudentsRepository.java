@@ -6,4 +6,6 @@ import sg.edu.nus.sms.model.Students;
 
 public interface StudentsRepository extends JpaRepository<Students,Integer> {
 
+	Students findByStudentID(int studentID);
+
 }

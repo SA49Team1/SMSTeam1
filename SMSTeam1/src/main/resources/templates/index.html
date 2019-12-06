@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Index</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+</head>
+<body>
+
+	<div th:fragment="home" class="w3-pale-blue w3-card">
+		<div class="w3-container w3-tangerine">
+			<p class="w3-large" align="center">Welcome to SMS</p>
+		</div>
+	</div>
+ 
+ 	<div class="w3-container" align="center">
+ 		<h1 align="center">Welcome to School Management System</h1>
+ 		<a href="#" th:href="@{/home/login}" >Log In</a><br/>
+
+		<img src="school.png" class="w3-border w3-padding" alt="Team1" style="max-height: 400px; max-width:400px">
+		 	
+ 	</div>
+ 	
+ 	<div th:fragment="copyright">
+ 		<p class="w3-wide" align="center">&copy; 2019 ISS, NUS, All Rights Reserved</p>
+ 	</div>
+</body>
+</html>

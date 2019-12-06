@@ -6,4 +6,6 @@ import sg.edu.nus.sms.model.Faculty;
 
 public interface FacultyRepository extends JpaRepository<Faculty, Integer> {
 
+	public Faculty findByFacultyID(int facultyID);
+
 }
